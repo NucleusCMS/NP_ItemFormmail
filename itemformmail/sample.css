@@ -1,0 +1,22 @@
+/* CSS Document */
+.form-preview {
+	width: 400px;
+	border: 1px solid #666666;
+}
+.form-name {
+	border: 1px solid #CCCCCC;
+	background-color: #EEEEEE;
+	width: 120px;
+}
+.form-value {
+	border: 1px solid #CCCCCC;
+}
+.formerror {
+	font-weight:bold;
+	color:red;
+}
+.form-notice {
+	font-weight:bold;
+	color:#FF3300;
+}
+
