@@ -186,7 +186,7 @@ class NP_ItemFormmail extends NucleusPlugin {
 
 		$this->actions = array ("uform", "captcha");
 
-		$this->parser =& new PARSER($this->actions, &$this, '(<!%|%!>)');
+		$this->parser = new PARSER($this->actions, &$this, '(<!%|%!>)');
 		$this->if_currentlevel = true;
 	}
 	function event_PrePluginOptionsEdit($data) {
