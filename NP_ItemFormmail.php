@@ -57,7 +57,7 @@ class NP_ItemFormmail extends NucleusPlugin {
     // for only once send processing
     var $mailcount;
 
-    function getName()              { return 'ItemFormmail alpha'; }
+    function getName()              { return 'ItemFormmail'; }
     function getAuthor()            { return 'Tomoaki Kosugi'; }
     function getURL()               { return 'http://japan.nucleuscms.org/wiki/plugins:np_itemformmail'; }
     function getVersion()           { return '0.6'; }
@@ -238,10 +238,12 @@ class NP_ItemFormmail extends NucleusPlugin {
                         array(&$this, 'form_handler') ,
                         $this->currentItem->body );
     }
+    
     function event_FormExtra($data)
     {
         //echo "test";
     }
+    
     function event_ValidateForm($data)
     {
         //$data['error'] = htmlentities('<h1>test</h1>');
@@ -583,58 +585,54 @@ class NP_ItemFormmail extends NucleusPlugin {
     //
     function _parse_preview() {
         $bodydata = $this->preview['body'];
-        $linefeed = "\n";
         // start preview table
-            $previewedtable .= _IFORM_RECEIPTS_PREVIEW_BLOCK_HEAD.$linefeed;
-            $previewedtable .= $bodydata['visible'].$linefeed;
-            //$previewedtable .= $emaildata['visible'].$linefeed;
-            $previewedtable .= _IFORM_RECEIPTS_PREVIEW_BLOCK_FOOT.$linefeed;
-            $previewedtable .= "\n";
+        $previewedtable[] = _IFORM_RECEIPTS_PREVIEW_BLOCK_HEAD;
+        $previewedtable[] = $bodydata['visible'];
+        $previewedtable[] = _IFORM_RECEIPTS_PREVIEW_BLOCK_FOOT;
         // end table
         // for NP_Captcha compatible
         $ver_key = postVar('ver_key');
         $ver_sol = postVar('ver_sol');
         $captchaerror = $this->_captcha_check($ver_key, $ver_sol);
         // start contents data form
-            $previewedform .= '<form name="form1" method="post" action="">'.$linefeed;
-            // submit button  or REWRITE WARNING
+        $previewedform[] = '<form name="form1" method="post" action="">';
+        // submit button  or REWRITE WARNING
 
-            if ($this->inputcheck)
-            {
-                $previewedform .=
-                '<input type="submit" name="Submit" value="'._IFORM_SUBMIT.'"  class="formbutton"/>'.$linefeed;
-            }
-            else
-            {
-                $previewedform .= _IFORM_WARNING_REWRITE.$linefeed;
-                if ($captchaerror) {$previewedform .= $captchaerror;}
-            }
-            // f_body contents
-            $previewedform .= $bodydata['hidden'].$linefeed;
-            // email contents
-            $previewedform .= $emaildata['hidden'].$linefeed;
-            // flags
-            $previewedform .= '<input name="previewed" type="hidden" value="true"/>'.$linefeed;
-            $previewedform .= '<input name="sendmail" type="hidden"  value="true"/>'.$linefeed;
-            $previewedform .= "</form>\n";
+        if ($this->inputcheck)
+        {
+            $previewedform[] =
+            '<input type="submit" name="Submit" value="'._IFORM_SUBMIT.'"  class="formbutton"/>';
+        }
+        else
+        {
+            $previewedform[] = _IFORM_WARNING_REWRITE;
+            if ($captchaerror) $previewedform[] = $captchaerror;
+        }
+        // f_body contents
+        $previewedform[] = $bodydata['hidden'];
+        // email contents
+        $previewedform[] = $emaildata['hidden'];
+        // flags
+        $previewedform[] = '<input name="previewed" type="hidden" value="true"/>';
+        $previewedform[] = '<input name="sendmail" type="hidden"  value="true"/>';
+        $previewedform[] = '</form>';
         // end contents data form
 
         //
         // start rewrite form
-            $rewriteform .= _IFORM_RECEIPTS_PREVIEW_HORIZON;
-            $rewriteform .= '<form  name="rewrite"  method="post" action="">'.$linefeed;
-            $rewriteform .= '<input name="rewrite"  type="hidden" value="true" />'.$linefeed;
-            $rewriteform .= '<input name="sendmail" type="hidden" value="true"/>'.$linefeed;
-            $rewriteform .= '<input type="submit" name="Submit" value="'._IFORM_REWRITE.'" class="formbutton"/>'.$linefeed;
-            $rewriteform .= $bodydata['hidden'].$linefeed;
-            $rewriteform .= $emaildata['hidden'].$linefeed;
-            $rewriteform .= "</form>\n";
+        $rewriteform[] = _IFORM_RECEIPTS_PREVIEW_HORIZON;
+        $rewriteform[] = '<form  name="rewrite"  method="post" action="">';
+        $rewriteform[] = '<input name="rewrite"  type="hidden" value="true" />';
+        $rewriteform[] = '<input name="sendmail" type="hidden" value="true"/>';
+        $rewriteform[] = '<input type="submit" name="Submit" value="'._IFORM_REWRITE.'" class="formbutton"/>';
+        $rewriteform[] = $bodydata['hidden'];
+        $rewriteform[] = $emaildata['hidden'];
+        $rewriteform[] = '</form>';
         // end rewrite form
         //
 
         // append preview
-        return $previewedtable . $previewedform . $rewriteform;
-
+        return join("\n",$previewedtable) . join("\n",$previewedform) . join("\n",$rewriteform);
     }
     function _parse_previewbody()
     {
@@ -908,6 +906,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         $text .= "<input name='".$postvarname."[$idx][name]' type='hidden' value='$jpname'/>\n";
         return $text;
     }
+    
     //
     // result messages
     //
@@ -944,6 +943,7 @@ class NP_ItemFormmail extends NucleusPlugin {
             }
         }
     }
+    
     //
     //otherfunctions
     //
@@ -960,6 +960,7 @@ class NP_ItemFormmail extends NucleusPlugin {
             }
         }
     }
+    
     /**
      * this function referring NP_Captcha::check
      *  some modified
@@ -984,7 +985,6 @@ class NP_ItemFormmail extends NucleusPlugin {
             $this->inputcheck = false;
             return $this->captcha->getOption('FailedMsg');
         }
-
 
         // get info
         $res = sql_query('SELECT * FROM ' . $this->captcha->table . ' WHERE ckey=\'' . addslashes($key) . '\'');
@@ -1014,6 +1014,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         // correct solution for captcha challenge
         //return true;
     }
+    
     function _mymbmime($str) {
         switch(_IFORM_MAILSEND_ENCODEMIME) {
             case "mbstring":
@@ -1043,13 +1044,16 @@ class NP_ItemFormmail extends NucleusPlugin {
                 break;
         }
     }
+    
     function _suni($str) {
         return htmlentities(undoMagic($str),ENT_QUOTES,mb_internal_encoding());
     }
+    
     function _suniview($str)
     {
         return nl2br(htmlentities(undoMagic($str),ENT_QUOTES,mb_internal_encoding()));
     }
+    
     function _mailvalues($mailaddress, $mailname , $check = true) {
         $message = "";
         if (!$this->_mailcheck($mailaddress) && $check) {
@@ -1065,19 +1069,17 @@ class NP_ItemFormmail extends NucleusPlugin {
         }
         return $message;
     }
+    
     function _formvalues($str)
     {
-        $message = "";
         if ($this->_nullcheck($str))
         {
-            $message .= $this->_suniview($str);
+            $message = $this->_suniview($str);
         }
         else
         {
             $this->inputcheck = false;
-            $message .= _IFORM_RECEIPTS_PREVIEW_ERR_HEAD.
-                        _IFORM_ERROR_NO_CONTENT.
-                        _IFORM_RECEIPTS_PREVIEW_ERR_FOOT;
+            $message = _IFORM_RECEIPTS_PREVIEW_ERR_HEAD . _IFORM_ERROR_NO_CONTENT . _IFORM_RECEIPTS_PREVIEW_ERR_FOOT;
         }
         return $message;
     }
@@ -1100,6 +1102,7 @@ class NP_ItemFormmail extends NucleusPlugin {
             return false;
         }
     }
+    
     function _nullcheck($str) {
         if (strlen($str) < 1 ) {
             return false;
@@ -1107,13 +1110,14 @@ class NP_ItemFormmail extends NucleusPlugin {
             return true;
         }
     }
+    
     function _add_comment() {
         global $CONF, $errormessage, $manager ,$member;
 
-        $data['itemid'] =    $this->currentItem->itemid;
-        $data['user'] =     $this->commentdata['mailname'];
-        $data['userid'] =     $this->commentdata['mailaddress'];
-        $data['body'] =     $this->commentdata['contents'];
+        $data['itemid'] = $this->currentItem->itemid;
+        $data['user']   = $this->commentdata['mailname'];
+        $data['userid'] = $this->commentdata['mailaddress'];
+        $data['body']   = $this->commentdata['contents'];
 
         $comments = new COMMENTS($data['itemid']);
 
