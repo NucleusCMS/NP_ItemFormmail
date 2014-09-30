@@ -7,7 +7,7 @@ if ( !defined('_IFORM_COMMON_INCLUDED') ) {
 		}
 	}
 	if ( !defined('_IFORM_LANGUAGE_DEFINED') ) {
-		$language = ereg_replace( '[\\|/]', '', getLanguageName());
+		$language = str_replace( array('\\','/'), '', getLanguageName());
 		if (file_exists(dirname(__FILE__).'/'.$language.'.php')) {
 			include_once(dirname(__FILE__).'/'.$language.'.php');
 			define('_IFORM_LANGUAGE_DEFINED',1);
