@@ -165,16 +165,17 @@ class NP_ItemFormmail extends NucleusPlugin {
         {
             if ($this->getBlogOption($blog->getID(), "sendto"))
             {
-                $this->form['successmessage']   = $this->getBlogOption($blog->getID(), "successmessage");
-                $this->form['title']            = $this->getBlogOption($blog->getID(), "subject");
-                $this->form['usepreview']       = $this->getBlogOption($blog->getID(), "usepreview");
-                $this->form['autoreply']        = $this->getBlogOption($blog->getID(), "autoreply");
-                $this->form['autoreplysubject'] = $this->getBlogOption($blog->getID(), "autoreplysubject");
-                $this->form['autoreplybody']    = $this->getBlogOption($blog->getID(), "autoreplybody");
-                $this->form['autoreplyfrom']    = $this->getBlogOption($blog->getID(), "autoreplyfrom");
-                $this->form['autoreplyfromjp']  = $this->getBlogOption($blog->getID(), "autoreplyfromjp");
-                $this->form['sendto']           = $this->getBlogOption($blog->getID(), "sendto");
-                $this->form['usecaptcha']       = $this->getBlogOption($blog->getID(), "usecaptcha");
+                $blogid = $this->getBlogOption($blog->getID();
+                $this->form['successmessage']   = $blogid, "successmessage");
+                $this->form['title']            = $blogid, "subject");
+                $this->form['usepreview']       = $blogid, "usepreview");
+                $this->form['autoreply']        = $blogid, "autoreply");
+                $this->form['autoreplysubject'] = $blogid, "autoreplysubject");
+                $this->form['autoreplybody']    = $blogid, "autoreplybody");
+                $this->form['autoreplyfrom']    = $blogid, "autoreplyfrom");
+                $this->form['autoreplyfromjp']  = $blogid, "autoreplyfromjp");
+                $this->form['sendto']           = $blogid, "sendto");
+                $this->form['usecaptcha']       = $blogid, "usecaptcha");
             }
         }
         // this form's options
