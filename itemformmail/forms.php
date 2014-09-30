@@ -10,7 +10,7 @@ class FORMFACTORY extends BaseActions {
 
 		$this->actions = array("iform", "uform");
 
-		$this->parser =& new silentPARSER($this->actions, $this);
+		$this->parser = new silentPARSER($this->actions, $this);
 
 		// echo alternative
 		$this->ob =& $this->parser->ob;
