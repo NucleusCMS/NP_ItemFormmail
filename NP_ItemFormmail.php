@@ -131,7 +131,7 @@ class NP_ItemFormmail extends NucleusPlugin {
 		// if captcha no use comment out below
 		if ($manager->pluginInstalled('NP_Captcha'))
 			$this->captcha = $manager->getPlugin('NP_Captcha');
-		$language = strtolower(ereg_replace( '[\\|/]', '', getLanguageName()));
+		$language = strtolower(str_replace( array('\\','/'), '', getLanguageName()));
 		$this->base_inner_code = mb_internal_encoding();
 		$this->base_language = mb_language();
 		if (is_null($this->base_inner_code)) {
