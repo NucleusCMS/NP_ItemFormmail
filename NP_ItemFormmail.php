@@ -165,17 +165,17 @@ class NP_ItemFormmail extends NucleusPlugin {
         {
             if ($this->getBlogOption($blog->getID(), "sendto"))
             {
-                $blogid = $this->getBlogOption($blog->getID();
-                $this->form['successmessage']   = $blogid, "successmessage");
-                $this->form['title']            = $blogid, "subject");
-                $this->form['usepreview']       = $blogid, "usepreview");
-                $this->form['autoreply']        = $blogid, "autoreply");
-                $this->form['autoreplysubject'] = $blogid, "autoreplysubject");
-                $this->form['autoreplybody']    = $blogid, "autoreplybody");
-                $this->form['autoreplyfrom']    = $blogid, "autoreplyfrom");
-                $this->form['autoreplyfromjp']  = $blogid, "autoreplyfromjp");
-                $this->form['sendto']           = $blogid, "sendto");
-                $this->form['usecaptcha']       = $blogid, "usecaptcha");
+                $blogid = $this->getBlogOption($blog->getID());
+                $this->form['successmessage']   = $this->getBlogOption($blogid, "successmessage");
+                $this->form['title']            = $this->getBlogOption($blogid, "subject");
+                $this->form['usepreview']       = $this->getBlogOption($blogid, "usepreview");
+                $this->form['autoreply']        = $this->getBlogOption($blogid, "autoreply");
+                $this->form['autoreplysubject'] = $this->getBlogOption($blogid, "autoreplysubject");
+                $this->form['autoreplybody']    = $this->getBlogOption($blogid, "autoreplybody");
+                $this->form['autoreplyfrom']    = $this->getBlogOption($blogid, "autoreplyfrom");
+                $this->form['autoreplyfromjp']  = $this->getBlogOption($blogid, "autoreplyfromjp");
+                $this->form['sendto']           = $this->getBlogOption($blogid, "sendto");
+                $this->form['usecaptcha']       = $this->getBlogOption($blogid, "usecaptcha");
             }
         }
         // this form's options
@@ -183,7 +183,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         $this->mode = "normal";
         $this->actions = array ("uform", "captcha");
 
-        $this->parser = new PARSER($this->actions, &$this, '(<!%|%!>)');
+        $this->parser = new PARSER($this->actions, $this, '(<!%|%!>)');
         $this->if_currentlevel = true;
     }
     function event_PrePluginOptionsEdit($data)
@@ -338,7 +338,7 @@ class NP_ItemFormmail extends NucleusPlugin {
             if (! $member->isLoggedIn()) {
                 $data['type'] = 'commentform-notloggedin';
                 //ob_start();
-                $this->captcha->event_FormExtra(&$data);
+                $this->captcha->event_FormExtra($data);
                 //$form = ob_get_contents();
                 //ob_end_clean();
             }
@@ -953,7 +953,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         // compatible for NP_Captcha
         if ($this->form['usecaptcha'] == "yes" && $this->captcha) {
             $data['type'] = 'comment';
-            $this->captcha->event_ValidateForm(&$data);
+            $this->captcha->event_ValidateForm($data);
             if ($data['error']) {
                 $this->inputcheck = false;
                 return "\n<span class = 'formerror' >". $data['error'] . "</span>\n";
