@@ -163,9 +163,9 @@ class NP_ItemFormmail extends NucleusPlugin {
         $this->form['usecaptcha']       = $this->getOption("usecaptcha");
         if ($blog)
         {
-            if ($this->getBlogOption($blog->getID(), "sendto"))
+            $blogid = $blog->getID();
+            if ($this->getBlogOption($blogid, "sendto"))
             {
-                $blogid = $this->getBlogOption($blog->getID());
                 $this->form['successmessage']   = $this->getBlogOption($blogid, "successmessage");
                 $this->form['title']            = $this->getBlogOption($blogid, "subject");
                 $this->form['usepreview']       = $this->getBlogOption($blogid, "usepreview");
