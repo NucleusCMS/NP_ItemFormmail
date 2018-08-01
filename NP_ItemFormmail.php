@@ -806,7 +806,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                 {
                     $opt = explode("/",$op);
                     $label = $opt[0];
-                    if (strlen($opt[1])>0)
+                    if (isset($opt[1]) && strlen($opt[1])>0)
                     {
                         $value = $opt[1];
                     }
@@ -829,7 +829,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                     }
                     else
                     {
-                        if (strlen($opt[2])>0)
+                        if (isset($opt[2]) && strlen($opt[2])>0)
                         {
                             $selected = "selected='selected'";
                         }
@@ -853,7 +853,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                 foreach ($options as $op) {
                     $opt = explode("/",$op);
                     $label = $opt[0];
-                    if (strlen($opt[1])>0) {
+                    if (isset($opt[1]) && strlen($opt[1])>0) {
                         $value = $opt[1];
                     } else {
                         $value = $opt[0];
@@ -865,7 +865,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                             $selected = "";
                         }
                     } else {
-                        if (strlen($opt[2])>0) {
+                        if (isset($opt[2]) && strlen($opt[2])>0) {
                             $selected = "checked='checked'";
                         } else {
                             $selected = "";
@@ -883,7 +883,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                 foreach ($options as $op) {
                     $opt = explode("/",$op);
                     $label = $opt[0];
-                    if (strlen($opt[1])>0) {
+                    if (isset($opt[1]) && strlen($opt[1])>0) {
                         $value = $opt[1];
                     } else {
                         $value = $opt[0];
@@ -894,7 +894,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                         } else {
                             $selected = "";
                         }
-                    } elseif (strlen($opt[2])>0) {
+                    } elseif (isset($opt[2]) && strlen($opt[2])>0) {
                         $selected = "checked='checked'";
                     } else {
                         $selected = "";
