@@ -779,9 +779,9 @@ class NP_ItemFormmail extends NucleusPlugin {
         $postvarname = $this->postvarname;
         if (isset($_POST[$postvarname][$idx]['value']))
         {
-            $columnValue = $_POST[$postvarname][$idx]['value'];
+            $columnValue = hsc($_POST[$postvarname][$idx]['value']);
         }
-        $columnValue = htmlspecialchars($columnValue,ENT_QUOTES,_CHARSET);
+        else $columnValue = '';
         switch ($type) {
             default:
             case "text":
