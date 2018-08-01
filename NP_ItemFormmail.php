@@ -617,7 +617,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         // f_body contents
         $previewedform[] = $bodydata['hidden'];
         // email contents
-        $previewedform[] = $emaildata['hidden'];
+        // $previewedform[] = $emaildata['hidden'];
         // flags
         $previewedform[] = '<input name="previewed" type="hidden" value="true"/>';
         $previewedform[] = '<input name="sendmail" type="hidden"  value="true"/>';
@@ -632,7 +632,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         $rewriteform[] = '<input name="sendmail" type="hidden" value="true"/>';
         $rewriteform[] = '<input type="submit" name="Submit" value="'._IFORM_REWRITE.'" class="formbutton"/>';
         $rewriteform[] = $bodydata['hidden'];
-        $rewriteform[] = $emaildata['hidden'];
+        // $rewriteform[] = $emaildata['hidden'];
         $rewriteform[] = '</form>';
         // end rewrite form
         //
