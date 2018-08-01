@@ -234,6 +234,8 @@ class NP_ItemFormmail extends NucleusPlugin {
     }
     function event_PreItem($data)
     {
+        if(!isset($data['item'])) return;
+        
         $this->currentItem = &$data['item'];
         $this->readOptionsByItem();
         $this->parseCount = 0 ;
