@@ -269,8 +269,8 @@ class NP_ItemFormmail extends NucleusPlugin {
     {
         ++  $this->parseCount ;
         if ($this->parseCount > 1 ) return;
-               $this->form['formtext'] = removeBreaks($matches[1]);
-               $this->form['formtext'] = str_replace('<br />', PHP_EOL, $this->form['formtext']);
+        $this->form['formtext'] = removeBreaks($matches[1]);
+        $this->form['formtext'] = str_replace('<br />', PHP_EOL, $this->form['formtext']);
         $item = $this->currentItem;
         // post data interpretation
         // and set mode
