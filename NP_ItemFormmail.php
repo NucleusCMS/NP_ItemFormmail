@@ -505,7 +505,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                     if (is_array($_POST[$postvarname]['email']))
                     {
                         $this->receipt['contents'] .=
-                            undoMagic($_POST[$postvarname]['email']['name'])."<".$_POST[$postvarname]['email']['value'].">\n\n";
+                            $_POST[$postvarname]['email']['name']."<".$_POST[$postvarname]['email']['value'].">\n\n";
                         $this->receipt['mailaddress']      = $_POST[$postvarname]['email']['value'];
                         if     (isset($_POST[$postvarname]['email']['name']) && strlen($_POST[$postvarname]['email']['name'])> 2 )
                         {
@@ -527,8 +527,8 @@ class NP_ItemFormmail extends NucleusPlugin {
                         if (is_array($val) && $key !== 'email')
                         {
                             if(preg_match_all('/\n|\r/', $val['value'], $matches) > 1) $val['value'] = "\n" . $val['value'];
-                            $this->receipt['contents']     .= undoMagic($val['name']." = ".$val['value'])."\n";
-                            $this->commentdata['contents'] .= undoMagic($val['name']." = ".$val['value'])."\n";
+                            $this->receipt['contents']     .= $val['name']." = ".$val['value']."\n";
+                            $this->commentdata['contents'] .= $val['name']." = ".$val['value']."\n";
                         }
                         elseif($key == 'email')
                         {
@@ -536,8 +536,8 @@ class NP_ItemFormmail extends NucleusPlugin {
                         }
                         else
                         {
-                            $this->receipt['contents']     .= undoMagic("$key = $val")."\n";
-                            $this->commentdata['contents'] .= undoMagic("$key = $val")."\n";
+                            $this->receipt['contents']     .= "$key = $val"."\n";
+                            $this->commentdata['contents'] .= "$key = $val"."\n";
                         }
                     }
                 }
@@ -1042,7 +1042,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                         trim(
                             chunk_split(
                                 base64_encode(
-                                    mb_convert_encoding(undoMagic($str),$convertTo,"auto")
+                                    mb_convert_encoding($str,$convertTo,"auto")
                                 )
                             )
                         ).'=?=';
@@ -1053,12 +1053,12 @@ class NP_ItemFormmail extends NucleusPlugin {
     }
     
     function _suni($str) {
-        return htmlentities(undoMagic($str),ENT_QUOTES,mb_internal_encoding());
+        return htmlentities($str,ENT_QUOTES,mb_internal_encoding());
     }
     
     function _suniview($str)
     {
-        return nl2br(htmlentities(undoMagic($str),ENT_QUOTES,mb_internal_encoding()));
+        return nl2br(htmlentities($str,ENT_QUOTES,mb_internal_encoding()));
     }
     
     function _mailvalues($mailaddress, $mailname , $check = true) {
