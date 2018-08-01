@@ -61,7 +61,7 @@ class NP_ItemFormmail extends NucleusPlugin {
     function getName()              { return 'ItemFormmail'; }
     function getAuthor()            { return 'Tomoaki Kosugi'; }
     function getURL()               { return 'http://japan.nucleuscms.org/wiki/plugins:np_itemformmail'; }
-    function getVersion()           { return '0.6'; }
+    function getVersion()           { return '0.6.1'; }
     function getMinNucleusVersion() { return 350; }
     function getDescription()       { return _IFORM_DESCRIPTION; }
     function hasAdminArea()         { return 0;}
