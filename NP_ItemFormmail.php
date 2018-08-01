@@ -777,7 +777,7 @@ class NP_ItemFormmail extends NucleusPlugin {
         $hiddenfields .= '<input name="ver_key" type="hidden" value="'. $this->_suni(postVar('ver_key')) .'"/>'.$linefeed;
         $hiddenfields .= '<input name="ver_sol" type="hidden" value="'. $this->_suni(postVar('ver_sol')) .'"/>'.$linefeed;
 
-        $this->preview['body']['visible'] = $bodyVisible . $error;
+        $this->preview['body']['visible'] = $bodyVisible;
         $this->preview['body']['hidden'] = $hiddenfields;
         return;
     }
