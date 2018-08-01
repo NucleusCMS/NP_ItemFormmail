@@ -3,7 +3,7 @@ class FORMFACTORY extends BaseActions {
 	// Formbased options
 	var $options;
 
-	function FORMFACTORY() {
+	function __construct() {
 		$this->BaseActions();
 
 		$this->mode = "normal";
@@ -32,7 +32,7 @@ class silentPARSER extends PARSER {
 	// echo alternative
 	var $ob;
 
-	function silentPARSER($allowedActions, &$handler, $delim = '(<!%|%!>)', $pdelim = ',') {
+	function __construct($allowedActions, &$handler, $delim = '(<!%|%!>)', $pdelim = ',') {
 		$this->PARSER($allowedActions, &$handler, $delim , $pdelim);
 	}
 	function parse(&$contents) {
