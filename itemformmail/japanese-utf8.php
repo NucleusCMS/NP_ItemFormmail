@@ -1,21 +1,17 @@
 <?php
-if ( !defined('_IFORM_LANGUAGE_DEFINED') ) {
-	define('_IFORM_LANGUAGE_DEFINED',		1);
 	//プラグイン説明
 	define('_IFORM_DESCRIPTION',			'アイテムをフォームメール化します。<br />固定表示可能なプラグイン(NP_ShowItemなど)やリダイレクトコードを合わせて使うと安定したフォームメールになると思います。');
 
 	//プラグインオプション編集画面用
-	define('_IFORM_OPTION_QMENU',	'クイックメニューに表示しますか？');
+	define('_IFORM_OPTION_QMENU',	'クイックメニューに表示しますか？'); // （必要ないはず)
 	define('_IFORM_OPTION_ERASEDB',	'アンインストール時にプラグイン用テーブルを削除しますか？');
-	define('_IFORM_OPTION_SENDTO',		'受け取るメールアドレス');
+	define('_IFORM_OPTION_SENDTO',	'フォームの受信アドレス <br />( ex: mailaddress/UTF-8/myname )');
 	define('_IFORM_OPTION_SUBJECT',		'メールの件名');
 	define('_IFORM_OPTION_THANKS',		'送信完了時のメッセージ');
 	define('_IFORM_OPTION_THANKS_DEF',		"<h2>お問い合わせありがとうございました。</h2>\n");
-	define('_IFORM_OPTION_ITEMID',		'フォームを表示するアイテムのアイテムID(数字)');
 	define('_IFORM_OPTION_COMMENT',		'コメントとして保存しますか？');
 	define('_IFORM_OPTION_CAPTCHA',		'画像認証を使用しますか？');
 
-	define('_IFORM_OPTION_QMENU',		'クイックメニューに表示しますか？（必要ないと思います)');
 	define('_IFORM_PARSEITEM',		'フォームタグを自動育成しますか？');
 	define('_IFORM_OPTION_USEFORM',		'このアイテムをフォームとして使用しますか？');
 	define('_IFORM_OPTION_USEPREVIEW',		'プレビューを使いますか？');
@@ -26,7 +22,6 @@ if ( !defined('_IFORM_LANGUAGE_DEFINED') ) {
 	define('_IFORM_OPTION_AUTOREPLY_FROM',	'自動返信の送信元');
 	define('_IFORM_OPTION_AUTOREPLY_FROMJP',	'自動返信送信元の日本語名');
 	define('_IFORM_OPTION_AUTOREPLY_BODY',	'自動返信の中身');
-	define('_IFORM_OPTION_SENDTO',	'フォームの受信アドレス <br />( ex: mailaddress/UTF-8/myname )');
 	define('_IFORM_QMENU_TITLE',	'フォームメール');
 	define('_IFORM_QMENU_TOOLTIP',	'フォームメール管理');
 
@@ -149,6 +144,3 @@ if ( !defined('_IFORM_LANGUAGE_DEFINED') ) {
  <input type="submit" name="Submit" value="　送　信　"/>　
  <input type="reset" name="Submit" value=" リセット "/>
 </form>');
-}
-
-?>
