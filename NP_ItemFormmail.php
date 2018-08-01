@@ -522,7 +522,7 @@ class NP_ItemFormmail extends NucleusPlugin {
                 {
                     $body_tmp = $_POST[$postvarname];
                     ksort($body_tmp);
-                    while (list ($key, $val) = each ($body_tmp))
+                    foreach ($body_tmp as $key=>$val)
                     {
                         if (is_array($val) && $key !== 'email')
                         {
@@ -661,7 +661,7 @@ class NP_ItemFormmail extends NucleusPlugin {
             }
             ksort($postbody);
             reset($postbody);
-            while (list ($key, $val) = each ($postbody))
+            foreach ($postbody as $key=>$val)
             {
                 if (is_array($val))
                 {
@@ -752,7 +752,7 @@ class NP_ItemFormmail extends NucleusPlugin {
             }
             // f_body data renderrer
             ksort($bodydata);
-            while (list ($key, $val) = each ($bodydata))
+            foreach ($bodydata as $key=>$val)
             {
                 if (($val['name'] || $val['value']) && ($bodydata[$key]['name'] !== 'confirm'))
                 {
