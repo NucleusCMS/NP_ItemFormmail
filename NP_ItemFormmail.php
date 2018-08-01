@@ -190,6 +190,9 @@ class NP_ItemFormmail extends NucleusPlugin {
     function event_PrePluginOptionsEdit($data)
     {
         global $manager;
+        
+        if(!isset($data['contextid'])) return;
+        
         $context =  $data['context'];
         $id      =  $data['contextid'];
         $options =& $data['options'];
