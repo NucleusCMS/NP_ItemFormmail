@@ -654,7 +654,7 @@ class NP_ItemFormmail extends NucleusPlugin {
 
             foreach ($postbody as $element)
             {
-                if ($element['option'] == 'ename')
+                if (isset($element['option']) && $element['option'] == 'ename')
                 {
                     $ename = $element['value'];
                 }
@@ -665,6 +665,11 @@ class NP_ItemFormmail extends NucleusPlugin {
             {
                 if (is_array($val))
                 {
+                    if(!isset($bodydata[$key]['name']))  $bodydata[$key]['name'] = '';
+                    if(!isset($bodydata[$key]['value'])) $bodydata[$key]['value'] = '';
+                    if(!isset($val['name']))  $val['name'] = '';
+                    if(!isset($val['value'])) $val['value'] = '';
+                    
                     $bodydata[$key]['name'] .= $this->_suniview($val['name']);
                     if (isset($val['option']))
                     {
