@@ -56,6 +56,7 @@ class NP_ItemFormmail extends NucleusPlugin {
     var $if_currentlevel;
     // for only once send processing
     var $mailcount;
+    var $captcha;
 
     function getName()              { return 'ItemFormmail'; }
     function getAuthor()            { return 'Tomoaki Kosugi'; }
