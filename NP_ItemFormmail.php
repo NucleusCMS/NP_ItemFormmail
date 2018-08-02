@@ -322,6 +322,13 @@ class NP_ItemFormmail extends NucleusPlugin {
      */
     function parse_uform($idx, $type, $param3 = '' ,$option = '' ,$appendix = '')
     {
+        $p = func_get_args();
+        if(5<count($p)) {
+            foreach($p as $i=>$v) {
+                if($i<4) unset($p[$i]);
+            }
+            $appendix = join(',',$p);
+        }
         if ($idx == "option")
         {
             $this->options[] = array ($type => $param3);
