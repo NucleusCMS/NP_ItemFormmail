@@ -109,37 +109,37 @@ class NP_ItemFormmail extends NucleusPlugin
     function install()
     {
         global $CONF;
-        //$this->createOption("erase", _IFORM_OPTION_ERASEDB, "yesno", "no");
-        //$this->createOption("qmenu", _IFORM_OPTION_QMENU, "yesno", "no");
-        $this->createOption("subject",         _IFORM_OPTION_SUBJECT,            "text", "From:ItemFormmail");
-        $this->createOption("sendto",          _IFORM_OPTION_SENDTO,             "text", $CONF['AdminEmail'] . "/JIS/SiteAdmin");
-        $this->createOption("successmessage",  _IFORM_OPTION_THANKS,             "textarea", _IFORM_OPTION_THANKS_DEF);
-        $this->createOption("usepreview",      _IFORM_OPTION_USEPREVIEW,         "yesno", "yes");
-        $this->createOption("autoreply",       _IFORM_OPTION_AUTOREPLY,          "yesno", "no");
-        $this->createOption("autoreplyfrom",   _IFORM_OPTION_AUTOREPLY_FROM,     "text", $CONF['AdminEmail']);
-        $this->createOption("autoreplyfromjp", _IFORM_OPTION_AUTOREPLY_FROMJP,   "text", $CONF['SiteName']);
-        $this->createOption("autoreplysubject", _IFORM_OPTION_AUTOREPLY_SUBJECT,  "text", _IFORM_OPTION_AUTOREPLY_SUBJECT_DEF);
-        $this->createOption("autoreplybody",   _IFORM_OPTION_AUTOREPLY_BODY,     "textarea");
-        $this->createOption("registcomment",   _IFORM_OPTION_COMMENT,            "yesno", "no");
-        $this->createOption("usecaptcha",      _IFORM_OPTION_CAPTCHA,            "yesno", "yes");
+        //$this->createOption("erase", _IFORM_OPTION_ERASEDB, 'yesno', 'no');
+        //$this->createOption("qmenu", _IFORM_OPTION_QMENU, 'yesno', 'no');
+        $this->createOption('subject',         _IFORM_OPTION_SUBJECT,            'text', 'From:ItemFormmail');
+        $this->createOption('sendto',          _IFORM_OPTION_SENDTO,             'text', $CONF['AdminEmail'] . '/JIS/SiteAdmin');
+        $this->createOption('successmessage',  _IFORM_OPTION_THANKS,             'textarea', _IFORM_OPTION_THANKS_DEF);
+        $this->createOption('usepreview',      _IFORM_OPTION_USEPREVIEW,         'yesno', 'yes');
+        $this->createOption('autoreply',       _IFORM_OPTION_AUTOREPLY,          'yesno', 'no');
+        $this->createOption('autoreplyfrom',   _IFORM_OPTION_AUTOREPLY_FROM,     'text', $CONF['AdminEmail']);
+        $this->createOption('autoreplyfromjp', _IFORM_OPTION_AUTOREPLY_FROMJP,   'text', $CONF['SiteName']);
+        $this->createOption('autoreplysubject', _IFORM_OPTION_AUTOREPLY_SUBJECT,  'text', _IFORM_OPTION_AUTOREPLY_SUBJECT_DEF);
+        $this->createOption('autoreplybody',   _IFORM_OPTION_AUTOREPLY_BODY,     'textarea');
+        $this->createOption('registcomment',   _IFORM_OPTION_COMMENT,            'yesno', 'no');
+        $this->createOption('usecaptcha',      _IFORM_OPTION_CAPTCHA,            'yesno', 'yes');
 
-        $this->createOption("version", "Itemformmail-installed options-Version", "text", $this->getVersion(), "access=readonly");
+        $this->createOption('version', 'Itemformmail-installed options-Version', 'text', $this->getVersion(), "access=readonly");
 
-        $this->createBlogOption("subject",         _IFORM_OPTION_SUBJECT,           "text", "");
-        $this->createBlogOption("sendto",          _IFORM_OPTION_SENDTO,            "text", ''); // this default value needs '' because override check
-        $this->createBlogOption("successmessage",  _IFORM_OPTION_THANKS,            "textarea", _IFORM_OPTION_THANKS_DEF);
-        $this->createBlogOption("usepreview",      _IFORM_OPTION_USEPREVIEW,        "yesno", "yes");
-        $this->createBlogOption("autoreply",       _IFORM_OPTION_AUTOREPLY,         "yesno", "no");
-        $this->createBlogOption("autoreplyfrom",   _IFORM_OPTION_AUTOREPLY_FROM,    "text", $CONF['AdminEmail']);
-        $this->createBlogOption("autoreplyfromjp", _IFORM_OPTION_AUTOREPLY_FROMJP,  "text", $CONF['SiteName']);
-        $this->createBlogOption("autoreplysubject", _IFORM_OPTION_AUTOREPLY_SUBJECT, "text", _IFORM_OPTION_AUTOREPLY_SUBJECT_DEF);
-        $this->createBlogOption("autoreplybody",   _IFORM_OPTION_AUTOREPLY_BODY,    "textarea");
-        $this->createBlogOption("registcomment",   _IFORM_OPTION_COMMENT,           "yesno", "no");
-        $this->createBlogOption("usecaptcha",      _IFORM_OPTION_CAPTCHA,           "yesno", "yes");
+        $this->createBlogOption('subject',         _IFORM_OPTION_SUBJECT,           'text', '');
+        $this->createBlogOption('sendto',          _IFORM_OPTION_SENDTO,            'text', ''); // this default value needs '' because override check
+        $this->createBlogOption('successmessage',  _IFORM_OPTION_THANKS,            'textarea', _IFORM_OPTION_THANKS_DEF);
+        $this->createBlogOption('usepreview',      _IFORM_OPTION_USEPREVIEW,        'yesno', 'yes');
+        $this->createBlogOption('autoreply',       _IFORM_OPTION_AUTOREPLY,         'yesno', 'no');
+        $this->createBlogOption('autoreplyfrom',   _IFORM_OPTION_AUTOREPLY_FROM,    'text', $CONF['AdminEmail']);
+        $this->createBlogOption('autoreplyfromjp', _IFORM_OPTION_AUTOREPLY_FROMJP,  'text', $CONF['SiteName']);
+        $this->createBlogOption('autoreplysubject', _IFORM_OPTION_AUTOREPLY_SUBJECT, 'text', _IFORM_OPTION_AUTOREPLY_SUBJECT_DEF);
+        $this->createBlogOption('autoreplybody',   _IFORM_OPTION_AUTOREPLY_BODY,    'textarea');
+        $this->createBlogOption('registcomment',   _IFORM_OPTION_COMMENT,           'yesno', 'no');
+        $this->createBlogOption('usecaptcha',      _IFORM_OPTION_CAPTCHA,           'yesno', 'yes');
     }
     function _update_this()
     {
-        @include("itemformmail/update.php");
+        @include 'itemformmail/update.php';
     }
     function uninstall()
     {
@@ -166,8 +166,8 @@ class NP_ItemFormmail extends NucleusPlugin
                     break;
                 case "euc-jp":
                 case "euc":
-                    mb_internal_encoding("EUC-JP");
-                    if (!mb_language()) mb_language("Japanese");
+                    mb_internal_encoding('EUC-JP');
+                    if (!mb_language()) mb_language('Japanese');
                     $this->base_inner_code = mb_internal_encoding();
                     $this->base_language = mb_language();
             }
@@ -175,29 +175,29 @@ class NP_ItemFormmail extends NucleusPlugin
         $this->postvarname = "f_body";
         // set defaults
 
-        $this->form['successmessage']   = $this->getOption("successmessage");
-        $this->form['title']            = $this->getOption("subject");
-        $this->form['usepreview']       = $this->getOption("usepreview");
-        $this->form['autoreply']        = $this->getOption("autoreply");
-        $this->form['autoreplysubject'] = $this->getOption("autoreplysubject");
-        $this->form['autoreplybody']    = $this->getOption("autoreplybody");
-        $this->form['autoreplyfrom']    = $this->getOption("autoreplyfrom");
-        $this->form['autoreplyfromjp']  = $this->getOption("autoreplyfromjp");
-        $this->form['sendto']           = $this->getOption("sendto");
-        $this->form['usecaptcha']       = $this->getOption("usecaptcha");
+        $this->form['successmessage']   = $this->getOption('successmessage');
+        $this->form['title']            = $this->getOption('subject');
+        $this->form['usepreview']       = $this->getOption('usepreview');
+        $this->form['autoreply']        = $this->getOption('autoreply');
+        $this->form['autoreplysubject'] = $this->getOption('autoreplysubject');
+        $this->form['autoreplybody']    = $this->getOption('autoreplybody');
+        $this->form['autoreplyfrom']    = $this->getOption('autoreplyfrom');
+        $this->form['autoreplyfromjp']  = $this->getOption('autoreplyfromjp');
+        $this->form['sendto']           = $this->getOption('sendto');
+        $this->form['usecaptcha']       = $this->getOption('usecaptcha');
         if ($blog) {
             $blogid = $blog->getID();
             if ($this->getBlogOption($blogid, "sendto")) {
-                $this->form['successmessage']   = $this->getBlogOption($blogid, "successmessage");
-                $this->form['title']            = $this->getBlogOption($blogid, "subject");
-                $this->form['usepreview']       = $this->getBlogOption($blogid, "usepreview");
-                $this->form['autoreply']        = $this->getBlogOption($blogid, "autoreply");
-                $this->form['autoreplysubject'] = $this->getBlogOption($blogid, "autoreplysubject");
-                $this->form['autoreplybody']    = $this->getBlogOption($blogid, "autoreplybody");
-                $this->form['autoreplyfrom']    = $this->getBlogOption($blogid, "autoreplyfrom");
-                $this->form['autoreplyfromjp']  = $this->getBlogOption($blogid, "autoreplyfromjp");
-                $this->form['sendto']           = $this->getBlogOption($blogid, "sendto");
-                $this->form['usecaptcha']       = $this->getBlogOption($blogid, "usecaptcha");
+                $this->form['successmessage']   = $this->getBlogOption($blogid, 'successmessage');
+                $this->form['title']            = $this->getBlogOption($blogid, 'subject');
+                $this->form['usepreview']       = $this->getBlogOption($blogid, 'usepreview');
+                $this->form['autoreply']        = $this->getBlogOption($blogid, 'autoreply');
+                $this->form['autoreplysubject'] = $this->getBlogOption($blogid, 'autoreplysubject');
+                $this->form['autoreplybody']    = $this->getBlogOption($blogid, 'autoreplybody');
+                $this->form['autoreplyfrom']    = $this->getBlogOption($blogid, 'autoreplyfrom');
+                $this->form['autoreplyfromjp']  = $this->getBlogOption($blogid, 'autoreplyfromjp');
+                $this->form['sendto']           = $this->getBlogOption($blogid, 'sendto');
+                $this->form['usecaptcha']       = $this->getBlogOption($blogid, 'usecaptcha');
             }
         }
         // this form's options
@@ -210,45 +210,38 @@ class NP_ItemFormmail extends NucleusPlugin
     }
     function event_PrePluginOptionsEdit($data)
     {
-        global $manager;
+        if (!isset($data['contextid'])) {
+            return;
+        }
 
-        if (!isset($data['contextid'])) return;
-
-        $context =  $data['context'];
-        $id      =  $data['contextid'];
+        if ($this->captcha) {
+            return;
+        }
         $options = &$data['options'];
-        $pid     =  $this->getID();
-        switch ($context) {
-            case "global":
-                foreach ($options as $key => $option) {
-                    switch ($option['name']) {
-                        case 'usecaptcha':
-                            if (!$this->captcha) {
-                                unset($options[$key]);
-                                continue;
-                            }
-                            break;
-                    }
+        if ($data['context'] === 'global') {
+            foreach ($options as $key => $option) {
+                if ($option['name'] !== 'usecaptcha') {
+                    continue;
                 }
-                break;
-            case "blog":
-                foreach ($options as $key => $option) {
-                    if ($pid <> $option['pid']) continue;
-                    switch ($option['name']) {
-                        case 'usecaptcha':
-                            if (!$this->captcha) {
-                                unset($options[$key]);
-                                continue;
-                            }
-                            break;
-                    }
+                unset($options[$key]);
+            }
+        } elseif ($data['context'] === 'blog') {
+            foreach ($options as $key => $option) {
+                if ($option['name'] !== 'usecaptcha') {
+                    continue;
                 }
-                break;
+                if ($this->getID() <> $option['pid']) {
+                    continue;
+                }
+                unset($options[$key]);
+            }
         }
     }
     function event_PreItem($data)
     {
-        if (!isset($data['item'])) return;
+        if (!isset($data['item'])) {
+            return;
+        }
 
         $this->currentItem = &$data['item'];
         $this->readOptionsByItem();
@@ -283,7 +276,9 @@ class NP_ItemFormmail extends NucleusPlugin
     function form_handler($matches)
     {
         ++$this->parseCount;
-        if ($this->parseCount > 1) return;
+        if ($this->parseCount > 1) {
+            return '';
+        }
         $this->form['formtext'] = removeBreaks($matches[1]);
         $this->form['formtext'] = str_replace('<br />', PHP_EOL, $this->form['formtext']);
         $item = $this->currentItem;
@@ -319,9 +314,7 @@ class NP_ItemFormmail extends NucleusPlugin
     {
         ob_start();
         $this->parser->parse($this->form['formtext']);
-        $contents = ob_get_contents();
-        ob_end_clean();
-        return $contents;
+        return ob_get_clean();
     }
     /*
         form parse callback actions for PARSER
@@ -345,10 +338,9 @@ class NP_ItemFormmail extends NucleusPlugin
             }
             $appendix = join(',', $p);
         }
-        if ($idx == "option") {
+        if ($idx === 'option') {
             $this->options[] = array($type => $param3);
         } else {
-            $postvarname = $this->postvarname;
             echo $this->_gene_formElement($idx, $type, $param3, $option, $appendix);
         }
     }
@@ -360,7 +352,7 @@ class NP_ItemFormmail extends NucleusPlugin
     function parse_captcha()
     {
         // compatible for NP_Captcha
-        if ($this->form['usecaptcha'] == "yes" && $this->captcha) {
+        if ($this->form['usecaptcha'] === 'yes' && $this->captcha) {
             global $member;
             if (!$member->isLoggedIn()) {
                 $data['type'] = 'commentform-notloggedin';
@@ -401,14 +393,17 @@ class NP_ItemFormmail extends NucleusPlugin
     function mailsend($senddata, $replydata)
     {
         ++$this->mailcount;
-        if ($this->mailcount > 1) return;
-        global $CONF;
+        if ($this->mailcount > 1) {
+            return;
+        }
         // ex: hoge@example.com/UTF-8/admin,hogehoge@example.co.jp/JIS/bisehead
         //     to array()
         // compatible NP_Captcha
         $captchaerror = $this->_validate_captcha();
-        if ($captchaerror) return $captchaerror;
-        $sendtolist = explode(",", $this->form['sendto']);
+        if ($captchaerror) {
+            return $captchaerror;
+        }
+        $sendtolist = explode(',', $this->form['sendto']);
         foreach ($sendtolist as $value) {
             $sendto = explode("/", $value);
             // hoge@example.com/UTF-8/admin
@@ -416,19 +411,17 @@ class NP_ItemFormmail extends NucleusPlugin
             // sendchara => UTF-8
             // sendtoname => admin
             $mailaddress = $sendto[0];
-            if (isset($sendto[1]))
-                $sendchara = $sendto[1];
-            else
-                $sendchara = "JIS";
-            if (isset($sendto[2]))
-                $mailaddressjp = $sendto[2];
-            else
-                $mailaddressjp = "";
+            $sendchara = isset($sendto[1]) ? $sendto[1] : 'JIS';
+            $mailaddressjp = isset($sendto[2]) ? $sendto[2] : '';
 
             // normal mailsend block
             $this->set_sendchara($sendchara);
             if (isset($senddata['name']) && (strlen($senddata['name']) > 0)) {
-                $senddata['mailfrom'] = "From:" . $this->_mymbmime($senddata['name']) . '<' . $senddata['mailaddress'] . '>';
+                $senddata['mailfrom'] = sprintf(
+                    'From:%s<%s>',
+                    $this->_mymbmime($senddata['name']),
+                    $senddata['mailaddress']
+                );
             } else {
                 $senddata['mailfrom'] = "From:" . $senddata['mailaddress'];
             }
@@ -441,16 +434,18 @@ class NP_ItemFormmail extends NucleusPlugin
             // end normal mailsend block
 
         }
-        if ($this->form['autoreply'] == "yes") {
+        if ($this->form['autoreply'] === 'yes') {
             // start autoreply procedure
             if (strlen($this->form['autoreplyfromjp']) > 0)
-                $returnFrom = "From: "
-                    . $this->_mymbmime($this->form['autoreplyfromjp'])
-                    . '<' . $this->form['autoreplyfrom'] . '>';
+                $returnFrom = sprintf(
+                    'From: %s<%s>',
+                    $this->_mymbmime($this->form['autoreplyfromjp']),
+                    $this->form['autoreplyfrom']
+                );
             else
                 $returnFrom = "From: " . $this->form['autoreplyfrom'];
             if (mb_send_mail($replydata['mailaddress'], $replydata['title'], $replydata['body'], $returnFrom)) {
-                $result['autoReply'] = "ok";
+                $result['autoReply'] = 'ok';
             } else {
                 $result['autoReply'] = _IFORM_ERROR_AUTOREPLY;
             }
@@ -466,12 +461,12 @@ class NP_ItemFormmail extends NucleusPlugin
     {
         $this->sendchara = $chara;
         switch ($chara) {
-            case "UTF-8":
-                mb_language("uni");
-                mb_internal_encoding("UTF-8");
+            case 'UTF-8':
+                mb_language('uni');
+                mb_internal_encoding('UTF-8');
                 break;
-            case "JIS":
-                mb_language("Japanese");
+            case 'JIS':
+                mb_language('Japanese');
                 break;
         }
     }
@@ -489,31 +484,30 @@ class NP_ItemFormmail extends NucleusPlugin
     //
     function receipt_post($itemtitle)
     {
-        global $CONF;
         $postvarname = $this->postvarname;
         $this->inputcheck = true;
         // mode check
-        if (isset($_POST['sendmail']) && $_POST['sendmail'] == true) {
-            if ($this->form['usepreview'] == "yes") {
-                if (isset($_POST['rewrite']) && $_POST['rewrite'] == true) {
-                    $this->mode = 'rewrite';
-                    return;
-                } elseif (isset($_POST['previewed']) && $_POST['previewed'] == true) {
-                    $this->mode = 'send';
-                } else {
-                    $this->mode = 'preview';
-                }
-            } else {
+        if (!isset($_POST['sendmail']) || $_POST['sendmail'] != true) {
+            $this->mode = 'none';
+            return '';
+        }
+        if ($this->form['usepreview'] === 'yes') {
+            if (isset($_POST['rewrite']) && $_POST['rewrite'] == true) {
+                $this->mode = 'rewrite';
+                return '';
+            }
+            if (isset($_POST['previewed']) && $_POST['previewed'] == true) {
                 $this->mode = 'send';
+            } else {
+                $this->mode = 'preview';
             }
         } else {
-            $this->mode = 'none';
-            return;
+            $this->mode = 'send';
         }
         switch ($this->mode) {
             case 'send':
                 // title
-                $this->receipt['contents'] = "";
+                $this->receipt['contents'] = '';
                 // mail check
                 if (isset($_POST[$postvarname]['email'])) {
                     $this->receipt['contents'] .= _IFORM_MES_USERADDRESS;
@@ -536,13 +530,13 @@ class NP_ItemFormmail extends NucleusPlugin
                     ksort($body_tmp);
                     foreach ($body_tmp as $key => $val) {
                         if (is_array($val) && $key !== 'email') {
-                            if (preg_match_all('/\n|\r/', $val['value'], $matches) > 1) $val['value'] = "\n" . $val['value'];
-                            $this->receipt['contents']     .= $val['name'] . " = " . $val['value'] . "\n";
+                            if (preg_match_all('/[\n\r]/', $val['value'], $matches) > 1) {
+                                $val['value'] = "\n" . $val['value'];
+                            }
+                            $this->receipt['contents'] .= $val['name'] . " = " . $val['value'] . "\n";
                             $this->commentdata['contents'] .= $val['name'] . " = " . $val['value'] . "\n";
-                        } elseif ($key == 'email') {
-                            continue;
-                        } else {
-                            $this->receipt['contents']     .= "$key = $val" . "\n";
+                        } elseif ($key !== 'email') {
+                            $this->receipt['contents'] .= "$key = $val" . "\n";
                             $this->commentdata['contents'] .= "$key = $val" . "\n";
                         }
                     }
@@ -561,14 +555,17 @@ class NP_ItemFormmail extends NucleusPlugin
                 }
                 // regist receipt to receipt table
                 //itemformmail_db::insert_receipts($this->receipt);
-                if ($this->getOption("registcomment") == "yes") $this->_add_comment();
+                if ($this->getOption('registcomment') === 'yes') $this->_add_comment();
                 //autoReply Check
-                if ($this->form['autoreply'] == "yes") {
+                if ($this->form['autoreply'] === 'yes') {
                     $this->replydata['mailaddress'] = $this->receipt['mailaddress'];
                     $this->replydata['body']        = $this->form['autoreplybody'];
                     $this->replydata['title']       = $this->form['autoreplysubject'];
                     // set normal mail info
-                    $this->receipt['contents']     .=  'autoReply = _' . "\n" . $this->replydata['body'] . "\n-------\n";
+                    $this->receipt['contents']     .= sprintf(
+                        "autoReply = _\n%s\n-------\n",
+                        $this->replydata['body']
+                    );
                     // custom autoReply Subject
                     if (isset($_POST['autoReply']['subject'])) {
                         $this->replydata['title'] = $_POST['autoReply']['subject'];
@@ -577,7 +574,7 @@ class NP_ItemFormmail extends NucleusPlugin
                     }
                 }
                 break;
-            case "preview":
+            case 'preview':
                 //make previewdata
                 $this->_parse_previewbody();
                 break;
@@ -633,7 +630,6 @@ class NP_ItemFormmail extends NucleusPlugin
         $rewriteform[] = '</form>';
         // end rewrite form
         //
-
         // append preview
         return join("\n", $previewedtable) . join("\n", $previewedform) . join("\n", $rewriteform);
     }
@@ -641,15 +637,15 @@ class NP_ItemFormmail extends NucleusPlugin
     {
         $postvarname  = $this->postvarname;
         $bodydata     = array();
-        $bodyVisible  = "";
-        $hiddenfields = "";
+        $bodyVisible  = '';
+        $hiddenfields = '';
         $linefeed     = "\n";
 
         if (isset($_POST[$postvarname])) {
             $postbody = $_POST[$postvarname];
 
             foreach ($postbody as $element) {
-                if (isset($element['option']) && $element['option'] == 'ename') {
+                if (isset($element['option']) && $element['option'] === 'ename') {
                     $ename = $element['value'];
                 }
             }
@@ -657,25 +653,37 @@ class NP_ItemFormmail extends NucleusPlugin
             reset($postbody);
             foreach ($postbody as $key => $val) {
                 if (is_array($val)) {
-                    if (!isset($bodydata[$key]['name']))  $bodydata[$key]['name'] = '';
-                    if (!isset($bodydata[$key]['value'])) $bodydata[$key]['value'] = '';
-                    if (!isset($val['name']))  $val['name'] = '';
-                    if (!isset($val['value'])) $val['value'] = '';
+                    if (!isset($bodydata[$key]['name'])) {
+                        $bodydata[$key]['name'] = '';
+                    }
+                    if (!isset($bodydata[$key]['value'])) {
+                        $bodydata[$key]['value'] = '';
+                    }
+                    if (!isset($val['name'])) {
+                        $val['name'] = '';
+                    }
+                    if (!isset($val['value'])) {
+                        $val['value'] = '';
+                    }
 
                     $bodydata[$key]['name'] .= $this->_suniview($val['name']);
                     if (isset($val['option'])) {
                         switch ($val['option']) {
-                            case "need":
+                            case 'need':
                                 $bodydata[$key]['value'] .= $this->_formvalues($val['value']);
                                 break;
-                            case "email":
+                            case 'email':
                                 $email = $this->_mailvalues($val['value'], $ename, true);
                                 $bodydata[$key]['value'] .= $email;
-                                $hiddenfields .= '<input name="' . $postvarname . '[email][value]"
-                                     type="hidden" value="' . $this->_suni($val['value']) . '"/>' . $linefeed;
+                                $hiddenfields .= sprintf(
+                                    '<input name="%s[email][value]" type="hidden" value="%s"/>%s',
+                                    $postvarname,
+                                    $this->_suni($val['value']),
+                                    $linefeed
+                                );
                                 break;
-                            case "confirm":
-                                //$bodydata[$key]['value'] .= $this->_mailvalues($val['value'],"",true);
+                            case 'confirm':
+                                //$bodydata[$key]['value'] .= $this->_mailvalues($val['value'],'',true);
                                 // if you use confirm need , put confirmfield after emailfield
                                 $confirmEmail = $this->_mailvalues($val['value'], $ename, true);
                                 if (!($confirmEmail == $email)) {
@@ -689,21 +697,30 @@ class NP_ItemFormmail extends NucleusPlugin
                                 }
                                 break;
                                 /* edit start yamamoto*/
-                            case "ename":
+                            case 'ename':
                                 if (strlen($val['value']) > 0) {
                                     $bodydata[$key]['value'] .= $this->_suniview($val['value'] . _IFORM_ENAME_SAMA);
-                                    $hiddenfields .= '<input name="' . $postvarname . '[email][name]"
-                                        type="hidden" value="' . $this->_suni($val['value']) . _IFORM_ENAME_SAMA . '"/>' . $linefeed;
+                                    $hiddenfields .= sprintf(
+                                        '<input name="%s[email][name]" type="hidden" value="%s%s"/>%s',
+                                        $postvarname,
+                                        $this->_suni($val['value']),
+                                        _IFORM_ENAME_SAMA,
+                                        $linefeed
+                                    );
                                 } else {
                                     $this->inputcheck = false;
                                     $bodydata[$key]['value'] .= _IFORM_ERROR_NO_CONTENT;
                                 }
                                 break;
-                            case "ename2":
+                            case 'ename2':
                                 if (strlen($val['value']) > 0) {
                                     $bodydata[$key]['value'] .= $this->_suniview($val['value']);
-                                    $hiddenfields .= '<input name="' . $postvarname . '[email][name]"
-                                     type="hidden" value="' . $this->_suni($val['value']) . '"/>' . $linefeed;
+                                    $hiddenfields .= sprintf(
+                                        '<input name="%s[email][name]" type="hidden" value="%s"/>%s',
+                                        $postvarname,
+                                        $this->_suni($val['value']),
+                                        $linefeed
+                                    );
                                 } else {
                                     $this->inputcheck = false;
                                     $bodydata[$key]['value'] .= _IFORM_ERROR_NO_CONTENT;
@@ -719,16 +736,31 @@ class NP_ItemFormmail extends NucleusPlugin
                         $bodydata[$key]['value'] .= $this->_suniview($val['value']);
                     }
                     if ($bodydata[$key]['name'] !== 'confirm') {
-                        $hiddenfields .= '<input name="' . $postvarname . '[' . $this->_suni($key) . '][name]"
-                                         type="hidden" value="' . $this->_suni($val['name']) . '"/>' . $linefeed;
-                        $hiddenfields .= '<input name="' . $postvarname . '[' . $this->_suni($key) . '][value]"
-                                         type="hidden" value="' . $this->_suni($val['value']) . '"/>' . $linefeed;
+                        $hiddenfields .= sprintf(
+                            '<input name="%s[%s][name]" type="hidden" value="%s"/>%s',
+                            $postvarname,
+                            $this->_suni($key),
+                            $this->_suni($val['name']),
+                            $linefeed
+                        );
+                        $hiddenfields .= sprintf(
+                            '<input name="%s[%s][value]" type="hidden" value="%s"/>%s',
+                            $postvarname,
+                            $this->_suni($key),
+                            $this->_suni($val['value']),
+                            $linefeed
+                        );
                     }
                 } else {
                     $bodydata[$key]['name']  .= $this->_suniview($val['key']);
                     $bodydata[$key]['value'] .= $this->_suniview($val['value']);
-                    $hiddenfields .= '<input name="' . $this->postvarname . '[' . $this->_suni($key) . ']"
-                                     type="hidden" value="' . $this->_suni($val) . '"/>' . $linefeed;
+                    $hiddenfields .= sprintf(
+                        '<input name="%s[%s]" type="hidden" value="%s"/>%s',
+                        $this->postvarname,
+                        $this->_suni($key),
+                        $this->_suni($val),
+                        $linefeed
+                    );
                 }
             }
             // f_body data renderrer
@@ -748,12 +780,19 @@ class NP_ItemFormmail extends NucleusPlugin
             }
         }
         // for NP_Captcha compatible
-        $hiddenfields .= '<input name="ver_key" type="hidden" value="' . $this->_suni(postVar('ver_key')) . '"/>' . $linefeed;
-        $hiddenfields .= '<input name="ver_sol" type="hidden" value="' . $this->_suni(postVar('ver_sol')) . '"/>' . $linefeed;
+        $hiddenfields .= sprintf(
+            '<input name="ver_key" type="hidden" value="%s"/>%s',
+            $this->_suni(postVar('ver_key')),
+            $linefeed
+        );
+        $hiddenfields .= sprintf(
+            '<input name="ver_sol" type="hidden" value="%s"/>%s',
+            $this->_suni(postVar('ver_sol')),
+            $linefeed
+        );
 
         $this->preview['body']['visible'] = $bodyVisible;
         $this->preview['body']['hidden'] = $hiddenfields;
-        return;
     }
 
     /*
@@ -764,26 +803,46 @@ class NP_ItemFormmail extends NucleusPlugin
         $postvarname = $this->postvarname;
         if (isset($_POST[$postvarname][$idx]['value'])) {
             $columnValue = hsc($_POST[$postvarname][$idx]['value']);
-        } else $columnValue = '';
+        } else {
+            $columnValue = '';
+        }
         $text = '';
         switch ($type) {
             default:
-            case "text":
-            case "textfield":
-                if (empty($columnValue) && requestVar($jpname)) $columnValue = requestVar($jpname);
+            case 'text':
+            case 'textfield':
+                if (empty($columnValue) && requestVar($jpname)) {
+                    $columnValue = requestVar($jpname);
+                }
                 $args = func_get_args();
                 $args = array_slice($args, 4);
-                $appendix = join(',', $args);
-                $text .= "<input name='" . $postvarname . "[$idx][value]' type='text' value='$columnValue'  $appendix />\n";
+                $appendix = implode(',', $args);
+                $text .= sprintf(
+                    "<input name='%s[%s][value]' type='text' value='%s' %s />\n",
+                    $postvarname,
+                    $idx,
+                    $columnValue,
+                    $appendix
+                );
                 break;
-            case "textarea":
-                $text .= "<textarea name='" . $postvarname . "[$idx][value]' $appendix>$columnValue</textarea>\n";
+            case 'textarea':
+                $text .= sprintf(
+                    "<textarea name='%s[%s][value]' %s>%s</textarea>\n",
+                    $postvarname,
+                    $idx,
+                    $appendix,
+                    $columnValue
+                );
                 break;
-            case "select":
+            case 'select':
                 $options = explode("\n", $appendix);
-                $text .= "<select name='" . $postvarname . "[$idx][value]'>\n";
+                $text .= sprintf(
+                    "<select name='%s[%s][value]'>\n",
+                    $postvarname,
+                    $idx
+                );
                 foreach ($options as $op) {
-                    $opt = explode("/", $op);
+                    $opt = explode('/', $op);
                     $label = $opt[0];
                     if (isset($opt[1]) && strlen($opt[1]) > 0) {
                         $value = $opt[1];
@@ -796,7 +855,7 @@ class NP_ItemFormmail extends NucleusPlugin
                         if ($value == $columnValue) {
                             $selected = "selected='selected'";
                         } else {
-                            $selected = "";
+                            $selected = '';
                         }
                     } else {
                         if (isset($opt[2]) && strlen($opt[2]) > 0) {
@@ -804,14 +863,19 @@ class NP_ItemFormmail extends NucleusPlugin
                         } elseif (requestVar($jpname) == $value) {
                             $selected = "selected='selected'";
                         } else {
-                            $selected = "";
+                            $selected = '';
                         }
                     }
-                    $text .= "<option value= '$value' $selected >$label</option>\n";
+                    $text .= sprintf(
+                        "<option value= '%s' %s >%s</option>\n",
+                        $value,
+                        $selected,
+                        $label
+                    );
                 }
-                $text .= "</select>";
+                $text .= '</select>';
                 break;
-            case "radio":
+            case 'radio':
                 $options = explode("\n", $appendix);
 
                 $text .= "<p>\n";
@@ -827,26 +891,32 @@ class NP_ItemFormmail extends NucleusPlugin
                         if ($value == $columnValue) {
                             $selected = "checked='checked'";
                         } else {
-                            $selected = "";
+                            $selected = '';
                         }
                     } else {
                         if (isset($opt[2]) && strlen($opt[2]) > 0) {
                             $selected = "checked='checked'";
                         } else {
-                            $selected = "";
+                            $selected = '';
                         }
                     }
-                    $text .= "
-                    <input name='" . $postvarname . "[$idx][value]' type='radio' value= '$value' $selected />
-                    <label for='$postvarname.[$idx][value]' >$label</label>
-                    \n";
+                    $text .= sprintf(
+                        "<input name='%s[%s][value]' type='radio' value= '%s' %s /><label for='%s.[%s][value]' >%s</label>\n",
+                        $postvarname,
+                        $idx,
+                        $value,
+                        $selected,
+                        $postvarname,
+                        $idx,
+                        $label
+                    );
                 }
                 $text .= "</p>";
                 break;
-            case "checkbox":
+            case 'checkbox':
                 $options = explode("\n", $appendix);
                 foreach ($options as $op) {
-                    $opt = explode("/", $op);
+                    $opt = explode('/', $op);
                     $label = $opt[0];
                     if (isset($opt[1]) && strlen($opt[1]) > 0) {
                         $value = $opt[1];
@@ -857,23 +927,31 @@ class NP_ItemFormmail extends NucleusPlugin
                         if ($value == $columnValue) {
                             $selected = "checked='checked'";
                         } else {
-                            $selected = "";
+                            $selected = '';
                         }
                     } elseif (isset($opt[2]) && strlen($opt[2]) > 0) {
                         $selected = "checked='checked'";
                     } else {
-                        $selected = "";
+                        $selected = '';
                     }
-                    $text .= "
-                    <input name='" . $postvarname . "[$idx][value]' type='checkbox' value= '$value' $selected />
-                    <label for='$postvarname[$idx][value]' >$label</label>\n";
+                    $text .= sprintf("
+                    <input name='%s[%s][value]' type='checkbox' value= '%s' %s />
+                    <label for='%s[value]' >%s</label>\n",
+                        $postvarname, $idx, $value, $selected, $postvarname[$idx], $label
+                    );
                 }
                 break;
         }
         if ($option != '') {
-            $text .= "<input name='" . $postvarname . "[$idx][option]' type='hidden' value='$option'/>\n";
+            $text .= sprintf(
+                "<input name='%s[%s][option]' type='hidden' value='%s'/>\n",
+                $postvarname, $idx, $option
+            );
         }
-        $text .= "<input name='" . $postvarname . "[$idx][name]' type='hidden' value='$jpname'/>\n";
+        $text .= sprintf(
+            "<input name='%s[%s][name]' type='hidden' value='%s'/>\n",
+            $postvarname, $idx, $jpname
+        );
         return $text;
     }
 
@@ -885,33 +963,30 @@ class NP_ItemFormmail extends NucleusPlugin
         if (is_array($result)) {
             $topresult = array_shift($result);
             switch ($topresult) {
-                case "ok":
+                case 'ok':
                     $this->result_message = $this->form['successmessage'];
                     return $this->form['successmessage'];
-                    break;
-                case "error":
+                case 'error':
                     $this->result_message = _IFORM_ERROR_MAILSEND;
                     return _IFORM_ERROR_MAILSEND;
-                    break;
                 default:
                     //debug print
                     echo "<pre>\n";
                     print_r($result);
-                    echo "</pre>";
+                    echo '</pre>';
             }
         } else {
             switch ($result) {
-                case "ok":
+                case 'ok':
                     return $this->form['successmessage'];
-                    break;
-                case "error":
+                case 'error':
                     return _IFORM_ERROR_MAILSEND;
-                    break;
                 default:
                     //debug print
                     return $result;
             }
         }
+        return '';
     }
 
     //
@@ -920,9 +995,11 @@ class NP_ItemFormmail extends NucleusPlugin
     function _validate_captcha()
     {
         global $member;
-        if ($member->isLoggedIn()) return;
+        if ($member->isLoggedIn()) {
+            return '';
+        }
         // compatible for NP_Captcha
-        if ($this->form['usecaptcha'] == "yes" && $this->captcha) {
+        if ($this->form['usecaptcha'] === 'yes' && $this->captcha) {
             $data['type'] = 'comment';
             $this->captcha->event_ValidateForm($data);
             if ($data['error']) {
@@ -930,6 +1007,7 @@ class NP_ItemFormmail extends NucleusPlugin
                 return "\n<span class = 'formerror' >" . $data['error'] . "</span>\n";
             }
         }
+        return '';
     }
 
     /**
@@ -943,8 +1021,12 @@ class NP_ItemFormmail extends NucleusPlugin
     function _captcha_check($key, $solution)
     {
         global $member;
-        if ($member->isLoggedIn()) return;
-        if (!($this->form['usecaptcha'] == "yes" && $this->captcha)) return;
+        if ($member->isLoggedIn()) {
+            return true;
+        }
+        if (!($this->form['usecaptcha'] === 'yes' && $this->captcha)) {
+            return true;
+        }
         // initialize on first call
         if (!$this->captcha->inited)
             $this->captcha->init_captcha();
@@ -959,9 +1041,16 @@ class NP_ItemFormmail extends NucleusPlugin
         }
 
         // get info
-        $res = sql_query('SELECT * FROM ' . $this->captcha->table . ' WHERE ckey=\'' . addslashes($key) . '\'');
-        if ($res)
+        $res = sql_query(
+            sprintf(
+                "SELECT * FROM %s WHERE ckey='%s'",
+                $this->captcha->table,
+                addslashes($key)
+            )
+        );
+        if ($res) {
             $o = sql_fetch_object($res);
+        }
 
         // delete captcha key (we've got the info)
         //$this->captcha->_deleteKey($key);
@@ -982,7 +1071,7 @@ class NP_ItemFormmail extends NucleusPlugin
             $this->inputcheck = false;
             return $this->captcha->getOption('FailedMsg');
         }
-
+        return true;
         // correct solution for captcha challenge
         //return true;
     }
@@ -990,21 +1079,16 @@ class NP_ItemFormmail extends NucleusPlugin
     function _mymbmime($str)
     {
         switch (_IFORM_MAILSEND_ENCODEMIME) {
-            case "mbstring":
-            default:
-                $data = mb_encode_mimeheader($str);
-                return $data;
-                break;
-            case "buggy-mb":
+            case 'buggy-mb':
                 switch ($this->sendchara) {
-                    case "JIS":
+                    case 'JIS':
                         $convertTo = "ISO-2022-JP";
                         break;
-                    case "UTF-8":
+                    case 'UTF-8':
                         $convertTo = "UTF-8";
                         break;
                 }
-                $data = "=?$convertTo?B?" .
+                $data = "=?" . $convertTo . "?B?" .
                     trim(
                         chunk_split(
                             base64_encode(
@@ -1014,7 +1098,10 @@ class NP_ItemFormmail extends NucleusPlugin
                     ) . '=?=';
                 $data = str_replace("\r\n", "=?==?$convertTo?B?", $data);
                 return $data;
-                break;
+            case 'string':
+            default:
+                $data = mb_encode_mimeheader($str);
+                return $data;
         }
     }
 
@@ -1030,17 +1117,18 @@ class NP_ItemFormmail extends NucleusPlugin
 
     function _mailvalues($mailaddress, $mailname, $check = true)
     {
-        $message = "";
+        $message = '';
         if (!$this->_mailcheck($mailaddress) && $check) {
             $this->inputcheck = false;
             $message .= _IFORM_RECEIPTS_PREVIEW_ERR_HEAD .
                 _IFORM_ERROR_NO_MAIL .
                 _IFORM_RECEIPTS_PREVIEW_ERR_FOOT;
         } else {
-            $message .= $this->_suniview($mailname);
-            $message .= '&lt;';
-            $message .= $this->_suniview($mailaddress);
-            $message .= '&gt;';
+            $message .= sprintf(
+                '%s&lt;%s&gt;',
+                $this->_suniview($mailname),
+                $this->_suniview($mailaddress)
+            );
         }
         return $message;
     }
@@ -1048,12 +1136,10 @@ class NP_ItemFormmail extends NucleusPlugin
     function _formvalues($str)
     {
         if ($this->_nullcheck($str)) {
-            $message = $this->_suniview($str);
-        } else {
-            $this->inputcheck = false;
-            $message = _IFORM_RECEIPTS_PREVIEW_ERR_HEAD . _IFORM_ERROR_NO_CONTENT . _IFORM_RECEIPTS_PREVIEW_ERR_FOOT;
+            return $this->_suniview($str);
         }
-        return $message;
+        $this->inputcheck = false;
+        return _IFORM_RECEIPTS_PREVIEW_ERR_HEAD . _IFORM_ERROR_NO_CONTENT . _IFORM_RECEIPTS_PREVIEW_ERR_FOOT;
     }
 
     function _mailcheck($str)
@@ -1061,33 +1147,30 @@ class NP_ItemFormmail extends NucleusPlugin
         if (strlen($str) < 4) {
             return false;
         }
-        $str = mb_convert_kana(trim($str), 'as');
-        $keywords = preg_split('/[\s,;]+/', $str);
-        if (preg_match_all('/\@/', $keywords[0], $matches) == 1) {
-            $domain = preg_split('/\@/', $keywords[0]);
-            if (preg_match('/\./', $domain[1]) == 1) {
-                $str = htmlentities($keywords[0]);
-                return $str;
-            } else {
-                return false;
-            }
-        } else {
+        $keywords = preg_split(
+            '/[\s,;]+/',
+            mb_convert_kana(trim($str), 'as')
+        );
+        if (preg_match_all('/@/', $keywords[0], $matches) != 1) {
             return false;
         }
+
+        $domain = explode('@', $keywords[0]);
+        if (strpos($domain[1], '.') === false) {
+            return false;
+        }
+
+        return htmlentities($keywords[0]);
     }
 
     function _nullcheck($str)
     {
-        if (strlen($str) < 1) {
-            return false;
-        } else {
-            return true;
-        }
+        return $str != '';
     }
 
     function _add_comment()
     {
-        global $CONF, $errormessage, $manager, $member;
+        global $manager;
 
         $data['itemid'] = $this->currentItem->itemid;
         $data['user']   = $this->commentdata['mailname'];
